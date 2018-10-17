@@ -1,5 +1,6 @@
 package com.lesson.hobo;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
@@ -9,6 +10,8 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -26,8 +29,14 @@ import com.google.android.gms.tasks.Task;
 
 import com.lesson.hobo.Constant;
 
+import java.io.Serializable;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    @BindView(R.id.add_hobo) Button add_hobo;
 
     private GoogleMap mMap;
     private boolean mLocationPermissionGranted;
@@ -47,6 +56,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Construct a FusedLocationProviderClient.
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
+        ButterKnife.bind(this);
+        add_hobo.setVisibility(View.INVISIBLE);
+
+        add_hobo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), HoboForm.class);
+                i.putExtra("latitude", circle.getCenter().latitude);
+                i.putExtra("longitude", circle.getCenter().longitude);
+                i.putExtra("radius", circle.getRadius());
+                startActivity(i);
+            }
+        });
     }
 
     /**
@@ -62,6 +85,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        mMap.setOnCameraMoveListener(new GoogleMap.OnCameraMoveListener() {
+            @Override
+            public void onCameraMove() {
+                add_hobo.setVisibility(View.INVISIBLE);
+            }
+        });
+
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
@@ -74,6 +104,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if (circle!=null) circle.remove();
                 circle = mMap.addCircle(circleOptions);
                 //mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+                add_hobo.setVisibility(View.VISIBLE);
             }
         });
 

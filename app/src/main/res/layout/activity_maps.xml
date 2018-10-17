@@ -16,7 +16,7 @@
 
     <Button
         android:id="@+id/add_hobo"
-        
+        android:text="Ajouter un SDF ici"
         android:layout_height="50dp"
         android:layout_width="200dp"
         app:layout_constraintLeft_toLeftOf="parent"
