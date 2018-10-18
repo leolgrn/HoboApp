@@ -16,14 +16,83 @@
 
     <Button
         android:id="@+id/add_hobo"
-        android:text="Ajouter un SDF ici"
-        android:layout_height="50dp"
-        android:layout_width="200dp"
+        android:text="localiser un SDF ici"
+        android:layout_height="75dp"
+        android:layout_width="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="100dp"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/white"
         />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/welcome_block"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000"
+        android:elevation="2dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:padding="30dp"
+            >
+
+            <TextView
+                android:id="@+id/welcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bienvenue sur Hobo"
+                android:textSize="30dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/welcom_thanks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Vous allez pouvoir localiser un ou plusieurs SDF pour que des associations leur vienne en aide rapidement alors, Merci d'avance !"
+                android:textSize="22dp"
+                android:fontFamily="@font/roboto_thin"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@+id/welcome"
+                />
+
+            <ImageView
+                android:id="@+id/welcome_image"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcom_thanks"
+                android:src="@drawable/baseline_thumb_up_alt_white_48"/>
+
+            <Button
+                android:id="@+id/welcome_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/welcome_image"
+                app:layout_constraintRight_toRightOf="parent"
+                android:text="OK"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                android:fontFamily="@font/roboto_regular"
+                android:background="@color/apploizc_transparent_color"
+
+
+                />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
 
 

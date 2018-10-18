@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -37,6 +38,8 @@ import butterknife.ButterKnife;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     @BindView(R.id.add_hobo) Button add_hobo;
+    @BindView(R.id.welcome_block) ConstraintLayout welcome_block;
+    @BindView(R.id.welcome_button) Button welcome_button;
 
     private GoogleMap mMap;
     private boolean mLocationPermissionGranted;
@@ -70,6 +73,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 startActivity(i);
             }
         });
+
+        Intent i = getIntent();
+        if(i.getBooleanExtra("isAlreadyLaunched", false)){
+            welcome_block.setVisibility(View.INVISIBLE);
+        }
+
+        welcome_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                welcome_block.setVisibility(View.INVISIBLE);
+            }
+        });
+
+
+
     }
 
     /**
@@ -182,7 +200,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             mLastKnownLocation = (Location) task.getResult();
                             LatLng location = new LatLng(mLastKnownLocation.getLatitude(),mLastKnownLocation.getLongitude());
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, Constant.DEFAULT_ZOOM));
-                            mMap.addMarker(new MarkerOptions().position(location).title("You're here"));
+                            mMap.addMarker(new MarkerOptions().position(location).title("Vous êtes ici"));
                             mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
                         } else {
                             Log.d(Constant.TAG, "Current location is null. Using defaults.");

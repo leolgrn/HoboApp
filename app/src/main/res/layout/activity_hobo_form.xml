@@ -6,4 +6,267 @@
     android:layout_height="match_parent"
     tools:context=".HoboForm">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/hobo_lastname"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="50dp"
+                android:hint="Nom"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/roboto_light"/>
+
+            <EditText
+                android:id="@+id/hobo_forname"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:hint="Prénom"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hobo_lastname"
+                android:fontFamily="@font/roboto_light"/>
+
+            <!--<EditText
+                android:id="@+id/hobo_birth_date"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:cursorVisible="false"
+                android:hint="Date de naissance"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hobo_forname" />-->
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/hobo_gender"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hobo_forname">
+
+                <TextView
+                    android:id="@+id/gender"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:paddingLeft="5dp"
+                    android:text="Sexe"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:fontFamily="@font/roboto_light"/>
+
+                <RadioButton
+                    android:id="@+id/hobo_m"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:text="M"
+                    android:paddingLeft="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/gender"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:fontFamily="@font/roboto_light"/>
+
+                <RadioButton
+                    android:id="@+id/hobo_f"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:text="F"
+                    android:paddingLeft="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/hobo_m"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:fontFamily="@font/roboto_light"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/hobo_self"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:paddingLeft="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hobo_gender">
+
+
+
+                <TextView
+                    android:id="@+id/self"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="Je suis cette personne"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:fontFamily="@font/roboto_light"/>
+
+                <CheckBox
+                    android:id="@+id/hobo_is_self"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/self"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+
+            </android.support.constraint.ConstraintLayout>
+
+            <EditText
+                android:id="@+id/description"
+                android:hint="Description"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:inputType="textCapSentences|textMultiLine"
+                android:maxLength="100"
+                android:maxLines="10"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hobo_self"
+                android:fontFamily="@font/roboto_light"
+                />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:text="enregistrer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/white"
+        android:textSize="17dp"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/voile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#66000000"
+        android:elevation="2dp"
+        >
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/success_block"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/save_button"
+        android:background="@drawable/success_block_shape"
+        android:elevation="3dp">
+
+        <TextView
+            android:id="@+id/success_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Le SDF a bien été signalé aux assoctiations compétentes"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_regular"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/valid"
+            android:layout_marginTop="50dp"
+            android:textSize="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/valid"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/baseline_done_white_48"
+            app:layout_constraintTop_toBottomOf="@id/success_message"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/fail_block"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/save_button"
+        android:background="@drawable/fail_block_shape"
+        android:elevation="3dp">
+
+        <TextView
+            android:id="@+id/fail_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Une erreur s'est produite veuillez recommencer"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_regular"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/unvalid"
+            android:layout_marginTop="50dp"
+            android:textSize="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/unvalid"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/baseline_clear_white_48"
+            app:layout_constraintTop_toBottomOf="@id/fail_message"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/save_button"
+        android:indeterminateTint="#2DB55F"
+        android:elevation="2dp"/>
+
+
+
 </android.support.constraint.ConstraintLayout>
+

@@ -30,15 +30,28 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps">
+            android:name=".SplashScreen"
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HoboForm"></activity>
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".HoboForm"
+            android:label="@string/title_activity_HoboForm"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait" >
+
+        </activity>
     </application>
 
 </manifest>
