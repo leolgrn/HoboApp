@@ -30,14 +30,13 @@ import butterknife.ButterKnife;
 
 public class HoboForm extends AppCompatActivity {
 
-    /*@BindView(R.id.hobo_birth_date) EditText birth_date;*/
-
     @BindView(R.id.hobo_forname) EditText hobo_forname;
     @BindView(R.id.hobo_lastname) EditText hobo_lastname;
     @BindView(R.id.description) EditText description;
     @BindView(R.id.hobo_f) RadioButton hobo_f;
     @BindView(R.id.hobo_m) RadioButton hobo_m;
-    @BindView(R.id.hobo_is_self) CheckBox hobo_is_self;
+    @BindView(R.id.hobo_is_self) RadioButton hobo_is_self;
+    @BindView(R.id.hobo_is_self2) RadioButton hobo_is_self2;
     @BindView(R.id.save_button) Button save_button;
     @BindView(R.id.voile) ConstraintLayout voile;
     @BindView(R.id.success_block) ConstraintLayout success_block;
@@ -96,6 +95,7 @@ public class HoboForm extends AppCompatActivity {
                             progressBar.setVisibility(View.INVISIBLE);
                             setTimeout(() -> {
                                 Intent i = new Intent(getApplicationContext(), MapsActivity.class);
+                                i.putExtra("isAlreadyLaunched", true);
                                 startActivity(i);
                             }, 3000);
                         }
@@ -115,6 +115,20 @@ public class HoboForm extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 hobo_f.setChecked(false);
+            }
+        });
+
+        hobo_is_self.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hobo_is_self2.setChecked(false);
+            }
+        });
+
+        hobo_is_self2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hobo_is_self.setChecked(false);
             }
         });
 

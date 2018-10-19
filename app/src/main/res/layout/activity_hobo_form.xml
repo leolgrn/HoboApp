@@ -49,7 +49,7 @@
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/hobo_gender"
-                android:layout_width="300dp"
+                android:layout_width="260dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="25dp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -95,13 +95,12 @@
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/hobo_self"
-                android:layout_width="300dp"
+                android:layout_width="260dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="25dp"
-                android:paddingLeft="20dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/hobo_gender">
+                app:layout_constraintTop_toBottomOf="@id/description">
 
 
 
@@ -111,20 +110,55 @@
                     android:layout_height="30dp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:text="Je suis cette personne"
+                    android:text="Je suis sans-abris"
                     android:textSize="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:fontFamily="@font/roboto_light"/>
 
-                <CheckBox
+                <RadioButton
                     android:id="@+id/hobo_is_self"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_marginLeft="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/self"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/hobo_self2"
+                android:layout_width="260dp"
+                android:layout_height="50dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hobo_self">
+
+
+
+                <TextView
+                    android:id="@+id/self2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="Je signale un sans-abris"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:fontFamily="@font/roboto_light"/>
+
+                <RadioButton
+                    android:id="@+id/hobo_is_self2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
 
 
@@ -132,7 +166,7 @@
 
             <EditText
                 android:id="@+id/description"
-                android:hint="Description"
+                android:hint="Description (obligatoire)"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
@@ -141,7 +175,7 @@
                 android:maxLines="10"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/hobo_self"
+                app:layout_constraintTop_toBottomOf="@id/hobo_gender"
                 android:fontFamily="@font/roboto_light"
                 />
 
